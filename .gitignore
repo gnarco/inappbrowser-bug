@@ -1,0 +1,13 @@
+node_modules
+platforms
+plugins
+www/
+.DS_Store
+.idea/
+
+src/environments/environment.ts
+
+.vscode/plugins.json
+
+.vscode/typings/jquery/jquery.d.ts
+coverage

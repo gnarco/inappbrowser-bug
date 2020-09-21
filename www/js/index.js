@@ -28,6 +28,8 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        this.open();
+
     },
 
     // Update DOM on a Received Event
@@ -40,7 +42,34 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+
+    open: function() {
+
+        var options = {
+            zoom: 'no',
+            toolbartranslucent: 'no',
+            toolbarposition: 'bottom',
+            closebuttoncaption: 'close',
+            navigationbuttoncolor: '#FFFFFF',
+            location: 'no',
+            EnableViewPortScale: 'yes',
+            clearcache: 'yes',
+            cleardata: 'yes',
+            closebuttoncolor: '#cd9a59',
+            presentationstyle: 'pagesheet'
+            //presentationstyle: "fullscreen"
+        
+          };
+
+        options = Object.keys(options)
+        .map(function (key) { return key + "=" + options[key]; })
+        .join(',');          
+
+        // Comment line below, to prove that's it's buggy after sliding
+        var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', options);
     }
+
 };
 
 app.initialize();
